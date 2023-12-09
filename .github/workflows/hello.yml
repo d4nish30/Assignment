@@ -12,16 +12,13 @@ jobs:
         container:
             image: node:14-alpine
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
-            - name: Send Notification on Success
-              if: ${{success()}}
+            - name: Notify on success or Failure
+              if: always()
+              uses: action/notift@v1
               with:
-                  message: 'workflow succeeded!'
-            - name: Send Notification on Success
-              if: ${{ failure() }}
-              with:
-                  message: 'workflow Failed!'
+                  status: ${{ job.status }}
+                  message: "Workflow run ${{ job.status }} for ${{ github.repository}} on branch${{github.ref}}by ${{ github.actor}}"
+                  token: ${{ secrets.GITHUB_TOKEN}}
             
             
         
