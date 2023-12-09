@@ -12,9 +12,11 @@ jobs:
         container:
             image: node:14-alpine
         steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
             - name: Notify on success or Failure
               if: always()
-              uses: 839005252301df2f35e8/Slack-Action@v3
+              uses: d4nish30/mailgun-action
               with:
                   status: ${{ job.status }}
                   message: "Workflow run ${{ job.status }} for ${{ github.repository}} on branch${{github.ref}}by ${{ github.actor}}"
