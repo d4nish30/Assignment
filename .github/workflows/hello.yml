@@ -12,7 +12,7 @@ jobs:
         container:
             image: node:14-alpine
         env:
-            slack_wehbook_url: ${{secrets.slack_wehbook_url}}
+            SLACK_WEHBOOK_URL: ${{secrets.SLACK_WEHBOOK_URL}}
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
