@@ -14,7 +14,7 @@ jobs:
         steps:
             - name: Notify on success or Failure
               if: always()
-              uses: action/notifY@v1
+              uses: action/notify@v1
               with:
                   status: ${{ job.status }}
                   message: "Workflow run ${{ job.status }} for ${{ github.repository}} on branch${{github.ref}}by ${{ github.actor}}"
