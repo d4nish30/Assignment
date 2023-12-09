@@ -12,10 +12,12 @@ jobs:
         container:
             image: node:14-alpine
         env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_SECRET }}
+            SLACK_WEHBOOK: ${{ secrets.SLACK_WEHBOOK }}
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
+
+              
             - name: Slack Notification
               uses: act10ns/slack@v1
               with:
