@@ -16,12 +16,10 @@ jobs:
               uses: actions/checkout@v2
             - name: Send Notification on Success
               if: ${{success()}}
-              uses: your/notification-action@v1
               with:
                   message: 'workflow succeeded!'
             - name: Send Notification on Success
               if: ${{ failure() }}
-              uses: your/notification-action@v1
               with:
                   message: 'workflow Failed!'
             
